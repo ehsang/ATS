@@ -9,6 +9,7 @@ public class AtsApplication {
     public static void main(String[] args) {
         SpringApplication.run(AtsApplication.class, args);
 
+
     }
 
 }
