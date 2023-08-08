@@ -20,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    String userName;
+    String username;
 
     @JsonIgnore
     String password; // Ensures password isn't exposed in any serialization
@@ -28,4 +28,5 @@ public class User {
     private String role; // e.g., "Admin", "User", "Recruiter"
 
     private LocalDate lastLogin;
+
 }
