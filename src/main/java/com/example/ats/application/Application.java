@@ -2,7 +2,7 @@ package com.example.ats.application;
 
 import com.example.ats.candidate.Candidate;
 import com.example.ats.jobposting.JobPosting;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,19 +15,19 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "applications")
+@Table
 public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "candidate_id")
-    private Candidate candidate;
-
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "job_posting_id")
-    private JobPosting jobPosting;
+//    @ManyToOne
+//    @JoinColumn(referencedColumnName = "candidate_id")
+//    private Candidate candidate;
+//
+//    @ManyToOne
+//    @JoinColumn(referencedColumnName = "job_posting_id")
+//    private JobPosting jobPosting;
 
     private LocalDate appliedDate;
 
