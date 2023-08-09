@@ -1,7 +1,5 @@
 package com.example.ats.user;
 
-import com.example.ats.jobposting.JobPosting;
-import com.example.ats.jobposting.JobPostingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

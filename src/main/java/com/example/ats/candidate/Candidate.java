@@ -1,6 +1,6 @@
 package com.example.ats.candidate;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "candidates")
+@Table
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

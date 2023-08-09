@@ -1,6 +1,6 @@
 package com.example.ats.jobposting;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "job_postings")
+@Table
 public class JobPosting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
