@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/v1/job-postings")
 public class JobPostingController {
@@ -23,8 +25,8 @@ public class JobPostingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<JobPosting> getJobPosting(@PathVariable Long id) {
-        JobPosting jobPosting = jobPostingService.getJobPosting(id);
+    public ResponseEntity<Optional<JobPosting>> getJobPosting(@PathVariable Long id) {
+        Optional<JobPosting> jobPosting = jobPostingService.getJobPostingById(id);
         if (jobPosting != null) {
             return ResponseEntity.ok(jobPosting);
         } else {

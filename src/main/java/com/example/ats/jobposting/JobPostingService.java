@@ -5,6 +5,8 @@ import com.example.ats.candidate.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class JobPostingService {
 
@@ -21,8 +23,8 @@ public class JobPostingService {
 
     }
 
-    public JobPosting getJobPosting(Long id) {
-        return jobPostingRepository.findById(id).orElse(null);
+    public Optional<JobPosting> getJobPostingById(Long id) {
+        return jobPostingRepository.findById(id);
     }
 
 }

@@ -47,11 +47,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-    @Override
+   /* @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/v1/users/register", "/api/v1/users/login").permitAll()
+                .antMatchers("/api/v1/users/register", "/api/v1/users/login","/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
@@ -60,5 +60,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+    }*/
+
+
+    //the h2-console in chrome didn't appear with the above configure() method,
+    // so I commented it out and came up with the version below which shows the
+    // localhost:8080/h2-console (Ask Ardeshir about it)
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/api/v1/users/register", "/api/v1/users/login","/h2-console/**").permitAll()
+                .anyRequest().authenticated();
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }

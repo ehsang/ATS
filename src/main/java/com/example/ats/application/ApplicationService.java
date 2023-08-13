@@ -1,18 +1,18 @@
 package com.example.ats.application;
 
-import com.example.ats.jobposting.JobPosting;
-import com.example.ats.jobposting.JobPostingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class applicationService {
+public class ApplicationService {
 
 
     private final ApplicationRepository applicationRepository;
 
     @Autowired
-    public applicationService(ApplicationRepository applicationRepository) {
+    public ApplicationService(ApplicationRepository applicationRepository) {
         this.applicationRepository = applicationRepository;
     }
 
@@ -21,8 +21,8 @@ public class applicationService {
 
     }
 
-    public Application getApplication(Long id) {
-        return applicationRepository.findById(id).orElse(null);
+    public Optional<Application> getApplicationById(Long id) {
+        return applicationRepository.findById(id);
     }
 
 }

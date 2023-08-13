@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/v1/applications")
 public class ApplicationController {
@@ -20,8 +22,8 @@ public class ApplicationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Candidate> getCandidate(@PathVariable Long id) {
-        Candidate candidate = candidateService.getCandidate(id);
+    public ResponseEntity<Optional<Candidate>> getCandidate(@PathVariable Long id) {
+        Optional<Candidate> candidate = candidateService.getCandidateById(id);
         if (candidate != null) {
             return ResponseEntity.ok(candidate);
         } else {

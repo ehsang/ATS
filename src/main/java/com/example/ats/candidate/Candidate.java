@@ -1,6 +1,8 @@
 package com.example.ats.candidate;
 
 import javax.persistence.*;
+
+import com.example.ats.application.Application;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
+@Table(name = "candidates")
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +24,9 @@ public class Candidate {
     private String phone;
     private String address;
     private String resumePath; //Store the path to the resume rather than the file itself
+
+    @OneToOne(mappedBy = "candidate", cascade = CascadeType.ALL)
+    private Application application;
 
 
 }
